@@ -1,0 +1,17 @@
+version: '2'
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 8080:8888
+    environment:
+      WORDPRESS_DB_PASSWORD: no-password-just-for-dev
+    volumes:
+      - ./wordpress:/var/www/html
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: no-password-just-for-dev
+    volumes:
+      - ./mysql:/var/lib/mysql
+
