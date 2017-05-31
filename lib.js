@@ -1,3 +1,0 @@
-// # courseware
-//
-console.log('hello');

@@ -1,18 +1,23 @@
 {
   "name": "courseware",
-  "scripts": {
-    "release": "simple-javascript release",
-    "dev": "simple-javascript dev",
-    "test": "simple-javascript test"
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://courseware.solsort.com/",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-native-web": "^0.0.95",
+    "react-redux": "^5.0.5"
   },
   "devDependencies": {
-    "simple-javascript": "*"
+    "gh-pages": "^1.0.0",
+    "react-scripts": "1.0.7"
   },
-  "license": "MIT",
-  "main": "lib.js",
-  "unpkg": "dist.js",
-  "repository": "github:solsort/courseware",
-  "version": "0.0.1",
-  "homepage": "http://courseware.solsort.com",
-  "description": ""
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
 }
