@@ -1,15 +1,40 @@
 # Courseware
 
-The purpose of this project is to make a simple tool for making online courses.
+The purpose of this project is to make a simple tool for making online courses, - for people with wordpress blogs.
 
-Notes/initial tasks
+There is a big question about whether to use the existing wordpress backend, or add an additional backend. Both has benefits, but integrating with wordpress is choosen, as that means better integration(for logins/payment, etc.) and most importantly, that there will be no extra backend/service to maintain, even though it is not as nice to code.
 
-- [ ] basic functional ui prototype
-  - [ ] ui prototype
-  - [ ] fetch content from wordpress + static course data sample
-  - [ ] let user walk through content, step by step, and show status
-  - [ ] show 
-- [ ] WP: user key-value store (for storing user state)
-- [ ] WP: user login/authentication
-- [ ] payment + registration of paying members (via stripe?)
-- [ ] WP: access control, courses only available to logged in users
+Some notes / separate aspects of the project:
+
+- [ ] Actual Course UI
+  - [ ] Show course content
+  - [ ] Course overview / menu
+  - [ ] Keep track of progress
+- [ ] Management of course content
+  - [ ] Course content in CMS
+  - [ ] Some encoding and storing of the course structure
+- [ ] WordPress Generic Backend  (needed for storing user progress etc.)
+  - [ ] Create wordpress plugin
+  - [ ] User key-value store
+    - [ ] Expose through wp-api
+    - [ ] Create DB with
+      - `user : userid`
+      - `key : short string`
+      - `value : binary`
+      - `private: bool`
+    - [ ] Add quota-support - limit amount of disk space user per user
+- [ ] User authentication 
+  - [ ] Use existing plugin?
+  - [ ] User sign-up (with email)
+- [ ] Payment / membership
+  - [ ] Setup stripe payment
+  - [ ] Sync stripe payments to user status
+  - [ ] Use existing plugin?
+- [ ] Access control?
+  - [ ] Only show certain courses for members?
+  - [ ] Dripping of content?
+  - [ ] Use existing plugin?
+- [ ] Deployment
+  - [ ] test site to deploy too initially?
+  - [ ] add user incremenally
+    - [ ] A/B test membership conversion rate
